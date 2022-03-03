@@ -5,6 +5,7 @@
 
 
 #practice making changes to push to Github
+#modifying a file to practice commit/push to GitHub
 
 rm(list=ls());                         # clear Environment tab
 options(show.error.locations = TRUE);  # show line numbers on error
