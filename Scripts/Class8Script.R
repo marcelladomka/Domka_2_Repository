@@ -32,3 +32,4 @@ plotA2 = ggplot(data=weatherData) +
 plot(plotA2)
 
 #practice GitHub commit and push changes
+##new changes to the script
