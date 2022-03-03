@@ -1,0 +1,37 @@
+---
+title: "FINAL_Rmarkdown_Domka"
+author: "Marcella Domka"
+date: "2/16/2022"
+output: html_document
+---
+
+---
+title: "Class4_2.16"
+author: "Marcella Domka"
+date: "2/16/2022"
+output: html_document
+---
+
+```{r setup, include=FALSE, cache = FALSE}
+require("knitr") 
+## setting working directory
+library(rprojroot)
+knitr::opts_knit$set(root.dir = rprojroot::find_rstudio_root_file())
+```
+
+# First R Markdown For FW 891
+## Practicing with headers!
+**Practicing with bold font!**
+*Practicing with italics!*
+Including a hyperlink to cute pig photos: <https://www.rd.com/list/pig-pictures/> 
+
+```{r include=FALSE}
+source(file="scripts/Domka_ggp1-02.r");
+```
+
+Include a plot from a previous homework script: In year `
+Here is some data for an inline math operation: `r mean(LansingWeather2016$avgTemp)  `
+
+```{r echo=FALSE}
+plot(weather_plot)
+```

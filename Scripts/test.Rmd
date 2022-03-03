@@ -1,0 +1,74 @@
+---
+title: "FirstKnitR"
+author: "Charlie"
+date: "2/1/2022"
+output:
+  html_document: default
+  word_document: default
+  pdf_document: default
+urlcolor: blue  
+---
+<!-- This is a comment in HTML/RMarkdown -->
+
+<!-- You need to install MikTex on a PC or MacTex on a Mac to create PDF files.
+     - In the MikTex installation: 
+       - set paper to "Letter" (not A4)
+       - set Install Missing Packages on the Fly to "Yes" (not Ask Me First)
+       - keep automatic updates checkbox checked
+     
+     The first time you create a PDF file using KnitR will be VERY slow
+       because MikTex is updating -- it will be much faster the second time
+--> 
+
+
+<!-- Sets the Working directory to be RStudio Project folder 
+     (this is not the default in KnitR) -->
+```{r setup, include=FALSE, cache = FALSE}
+require("knitr") 
+## setting working directory
+knitr::opts_knit$set(root.dir = rprojroot::find_rstudio_root_file())
+```
+
+<!-- Runs the code but does not output to the document (include=FALSE) -->
+```{r include=FALSE}
+source(file="scripts/Domka_ggp-app04.r");
+```
+
+Formatting in RMarkdown is awkward!!  
+Newlines in RMarkdown are done by adding two spaces to the end of a line.  
+  
+Things you can do in RMD:  
+**Bold**  
+*Italics*  
+***Bold/Italics***  
+
+Headers must have a **blank line** before in order to work.  
+
+# Header 1
+
+## Header 2
+
+### Header 3
+You can go up to Header 6... I think you see the pattern!
+
+
+A hyperlink <https://unsplash.com/s/photos/llama>  
+  
+More RMD features using the  
+[RMD Cheat Sheat](https://www.rstudio.com/wp-content/uploads/2015/02/rmarkdown-cheatsheet.pdf)  
+
+## Embedded R code
+You can embed R code and output in this document using 
+`r weatherData$avgTemp[1:10]`  everything between the apostrophes is treated as script.  So, you can also output the average temp `r mean(weatherData$avgTemp)`.  You can use anything from your script!
+
+
+
+## Including Plots
+
+You can also embed plots, for example:
+
+```{r echo=FALSE}
+plot(plot1)
+```
+
+Note that the `echo = FALSE` parameter was added to the code chunk to prevent printing of the R code that generated the plot. 
