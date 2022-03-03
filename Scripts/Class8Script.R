@@ -30,3 +30,5 @@ plotA2 = ggplot(data=weatherData) +
               method = "lm",
               fill = "red");
 plot(plotA2)
+
+#practice GitHub commit and push changes

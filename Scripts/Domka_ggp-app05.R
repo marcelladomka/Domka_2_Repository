@@ -3,6 +3,9 @@
 #HOMEWORK EXTENSION DUE TO ILLNESS
 #GGPlot Lesson 5
 
+
+#practice making changes to push to Github
+
 rm(list=ls());                         # clear Environment tab
 options(show.error.locations = TRUE);  # show line numbers on error
 library(package=ggplot2);              # get the GGPlot package
