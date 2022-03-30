@@ -145,6 +145,14 @@
   plot(plot5)
   
   
-  # I could not figure out how to zoom to my plotted lake points (from rsvr_SF1). Obviously the map
-  #is not focused on the correct part of the US, so the lake points are not visible. I will meet with you and 
-  #make corrections for this! Everything else should be correct.
+# I could not figure out how to zoom to my plotted lake points (from rsvr_SF1). Obviously the map
+#is not focused on the correct part of the US, so the lake points are not visible. I will meet with you and 
+#make corrections for this! Everything else should be correct.
+  
+#7) Lesson Feedback Answers 
+#Not very comfortable, difficult stuff!
+#Worked on this lesson for 4-5 hrs.
+#Setting the right xlim and ylim values so that the map focuses on the appropriate spot, and getting
+  #my personal lat/long lake data to appear.
+#Nothing right now, still need to master the basics.
+  
