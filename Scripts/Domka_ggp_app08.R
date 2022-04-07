@@ -2,6 +2,8 @@
 ### March 1st, 2022
 ### GGPlot Lesson 8: Multipaneling
 
+library(ggplot2)
+
 rm(list=ls());                         # clear Environment tab
 options(show.error.locations = TRUE);  # show line numbers on error
 weatherData = read.csv(file="Data/Lansing2016Data.csv") # read in weather data
@@ -10,12 +12,18 @@ library(package=gridExtra) # gridExtra installed, called using library
 #Create a histogram of tempDept restricted to days that meet a condition in the weatherType column
 
 snowDays = grep(weatherData$weatherType, pattern="SN");   # any day with snow
-mean(weatherData[snowDays,]$tempDept)
+meansnow = mean(weatherData[snowDays,]$tempDept)
+meansnow
 #mean for snowDays is -4.11
+
+#charlie's example for corrections...:
+#meanFog = mean(…);
+
+#geom_vline(xintercept = meanFog) + 
 
 plot1 = ggplot( data=weatherData[snowDays,] ) +
   geom_histogram(mapping = aes(x=tempDept)) +
-  geom_vline(xintercept = -4.11) +
+  geom_vline(xintercept = meansnow) +
   theme_bw() +
   annotate(geom="text",  
            x=-10.5,        
@@ -39,12 +47,12 @@ plot(plot1)
 #Repeat step 2 for two more weather conditions in weatherType
 
 fogDays = grep(weatherData$weatherType, pattern="FG");   # any day with fog
-mean(weatherData[fogDays,]$tempDept)
+meanfog =mean(weatherData[fogDays,]$tempDept)
 #mean for fogDays is 2.58
 
 plot2 = ggplot( data=weatherData[fogDays,] ) +
   geom_histogram(mapping = aes(x=tempDept)) +
-  geom_vline(xintercept = 2.58) +
+  geom_vline(xintercept = meanfog) +
   theme_bw() +
   annotate(geom="text",  
            x=-2.5,        
@@ -66,12 +74,12 @@ plot2 = ggplot( data=weatherData[fogDays,] ) +
 plot(plot2)
 
 hazeDays = grep(weatherData$weatherType, pattern="HZ");   # any day with haze
-mean(weatherData[hazeDays,]$tempDept)
+meanhaze = mean(weatherData[hazeDays,]$tempDept)
 #mean for hazeDays is 0.016
 
 plot3 = ggplot( data=weatherData[hazeDays,] ) +
   geom_histogram(mapping = aes(x=tempDept)) +
-  geom_vline(xintercept = 0.016) +
+  geom_vline(xintercept = meanhaze) +
   theme_bw() +
   annotate(geom="text",  
            x=-4.5,        
@@ -95,12 +103,12 @@ plot(plot3)
 #Create a histogram of tempDept restricted to days where two conditions occur in the weatherType column 
 
 fog_and_haze = intersect(fogDays, hazeDays)
-mean(weatherData[fog_and_haze,]$tempDept)
+meanfoghaze = mean(weatherData[fog_and_haze,]$tempDept)
 #mean for fog AND haze Days is -0.83
 
 plot4 = ggplot( data=weatherData[fog_and_haze,] ) +
   geom_histogram(mapping = aes(x=tempDept)) +
-  geom_vline(xintercept = -0.83) +
+  geom_vline(xintercept = meanfoghaze) +
   theme_bw() +
   annotate(geom="text",  
            x=-4.5,        
@@ -124,12 +132,12 @@ plot(plot4)
 #Create a histogram of tempDept restricted to days where one of two conditions occur (from weatherType)
 
 foggy_or_hazy = union(fogDays, hazeDays)
-mean(weatherData[foggy_or_hazy,]$tempDept)
+meanfog_or_haze = mean(weatherData[foggy_or_hazy,]$tempDept)
 #mean for fog OR haze Days is 1.52
 
 plot5 = ggplot( data=weatherData[foggy_or_hazy,] ) +
   geom_histogram(mapping = aes(x=tempDept)) +
-  geom_vline(xintercept = 1.52) +
+  geom_vline(xintercept = meanfog_or_haze) +
   theme_bw() +
   annotate(geom="text",  
            x=-2.9,        
