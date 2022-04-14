@@ -46,10 +46,6 @@
   lakes = st_read(dsn="Data/lakes/ne_10m_lakes.shp");  
   lakes_SF = st_as_sf(lakes); 
   
-  install.packages("devtools")
-  
-  devtools::install_github("ropensci/rnaturalearthhires");
-  
   states = ne_states(country = "United States of America");
   states_SF = st_as_sf(states);
   
@@ -123,10 +119,6 @@
                       crs = 4326);
   
   plot4 = ggplot() +
-    geom_sf(data=rsvr_SF1,
-            mapping = aes(geometry = geometry), 
-               fill="grey", 
-               color="white") +
     geom_sf(data = states_SF,
             mapping = aes(geometry = geometry),
             color = "black",
@@ -134,7 +126,11 @@
     geom_sf(data = lakes_SF,
             mapping = aes(geometry = geometry),
             color = "lightblue",
-            fill = "lightblue");
+            fill = "lightblue") +
+    geom_sf(data=rsvr_SF1,
+            mapping = aes(geometry = geometry), 
+            fill="grey", 
+            color="blue");
   plot(plot4)
   
   plot5 = plot4 +
@@ -143,16 +139,11 @@
              ylim = c(41.68435, 42.69828),
              expand = TRUE);
   plot(plot5)
-  
-  
-# I could not figure out how to zoom to my plotted lake points (from rsvr_SF1). Obviously the map
-#is not focused on the correct part of the US, so the lake points are not visible. I will meet with you and 
-#make corrections for this! Everything else should be correct.
+
   
 #7) Lesson Feedback Answers 
 #Not very comfortable, difficult stuff!
 #Worked on this lesson for 4-5 hrs.
-#Setting the right xlim and ylim values so that the map focuses on the appropriate spot, and getting
-  #my personal lat/long lake data to appear.
+#Nothing, after making corrections!
 #Nothing right now, still need to master the basics.
   
